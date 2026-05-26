@@ -14,7 +14,7 @@ public class Produto {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "preço")
+    @Column(name = "preco")
     private Double preco;
 
     public Produto(){
