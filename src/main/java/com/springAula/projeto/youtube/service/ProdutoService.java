@@ -5,6 +5,7 @@ import com.springAula.projeto.youtube.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -15,6 +16,7 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
+    //Métodos
     public Produto salvarProduto(Produto produto){
         return produtoRepository.save(produto);
     }
@@ -22,6 +24,26 @@ public class ProdutoService {
     public List<Produto> listarProdutos(){
         return produtoRepository.findAll();
     }
+
+    public Optional<Produto> buscarPorId(Long id){
+        return produtoRepository.findById(id);
+    }
+
+    public Produto autalizaProduto(Long id, String nome, Double preco){
+
+       Produto produto = produtoRepository.findById(id).orElseThrow();
+
+       produto.setNome(nome);
+       produto.setPreco(preco);
+
+       return produtoRepository.save(produto);
+
+    }
+
+    public void deletaProdutoPorID(Long id){
+        produtoRepository.deleteById(id);
+    }
+
 
 
 }
