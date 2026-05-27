@@ -3,6 +3,7 @@ package com.springAula.projeto.youtube.controller;
 import com.springAula.projeto.youtube.model.Produto;
 import com.springAula.projeto.youtube.service.ProdutoService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/buscarPorId/{id}")
-    ResponseEntity<Optional<Produto>> buscarPorId(@PathVariable Long id){
+    ResponseEntity<Produto> buscarPorId(@PathVariable Long id){
         return ResponseEntity.ok(produtoService.buscarPorId(id));
     }
 
