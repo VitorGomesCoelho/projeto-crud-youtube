@@ -21,9 +21,9 @@ public class ProdutoService {
 
     //Métodos
     public Produto salvarProduto(Produto produto){
-        if(produto.getNome().isBlank()){
+        /*if(produto.getNome().isBlank()){
             throw new DadosIncorretosException("Dados incorretos ou não informados");
-        }
+        }*/
 
         return produtoRepository.save(produto);
     }

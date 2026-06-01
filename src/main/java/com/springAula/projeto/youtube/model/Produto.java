@@ -1,6 +1,8 @@
 package com.springAula.projeto.youtube.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "produtos")
@@ -11,9 +13,11 @@ public class Produto {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @NotBlank
     @Column(name = "preco")
     private Double preco;
 

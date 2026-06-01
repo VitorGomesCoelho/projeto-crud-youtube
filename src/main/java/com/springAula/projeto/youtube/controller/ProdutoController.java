@@ -2,6 +2,7 @@ package com.springAula.projeto.youtube.controller;
 
 import com.springAula.projeto.youtube.model.Produto;
 import com.springAula.projeto.youtube.service.ProdutoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@Validated
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
@@ -20,7 +22,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/salvar")
-    ResponseEntity<Produto> salvarProduto(@RequestBody Produto produto){
+    ResponseEntity<Produto> salvarProduto(@Valid @RequestBody Produto produto){
         return ResponseEntity.ok(produtoService.salvarProduto(produto));
     }
 
